@@ -69,7 +69,7 @@
 
   <div class="grid">
     <Card>
-      <span slot="title">Lucro médio pós despesas</span>
+      <span slot="title">Lucro Médio Pós Despesas</span>
       <span slot="subtitle">Excluindo Marketing</span>
       <span slot="value">{round(ticket * profit_margin * 0.01)}</span>
     </Card>
@@ -87,7 +87,7 @@
     </Card>
 
     <Card>
-      <span slot="title">Net Margin Value of Lead</span>
+      <span slot="title">Margem Líquida de Valor de Cliente</span>
       <span slot="subtitle">Valor Real * Margem de Lucro</span>
       <span slot="value">{round(lead_net_margin)}</span>
     </Card>
