@@ -87,7 +87,7 @@
     </Card>
 
     <Card>
-      <span slot="title">Margem Líquida de Valor de Cliente</span>
+      <span slot="title">Margem Líquida p/ Cliente</span>
       <span slot="subtitle">Valor Real * Margem de Lucro</span>
       <span slot="value">{round(lead_net_margin)}</span>
     </Card>
