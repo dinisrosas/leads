@@ -16,7 +16,7 @@
 </script>
 
 <main>
-  <h1>Lead Value Calculator</h1>
+  <h1>Calculadora de Valor de Clientes</h1>
 
   <div>
     <label for="ticket">
@@ -44,7 +44,7 @@
         name="profit-margin"
         type="range"
         min="0"
-        step="10"
+        step="5"
         max="100"
         bind:value={profit_margin}
       />
@@ -59,7 +59,7 @@
         name="close-rate"
         type="range"
         min="0"
-        step="10"
+        step="5"
         max="100"
         bind:value={close_rate}
       />
@@ -71,7 +71,7 @@
     <Card>
       <span slot="title">Lucro Médio Pós Despesas</span>
       <span slot="subtitle">Excluindo Marketing</span>
-      <span slot="value">{round(ticket * profit_margin * 0.01)}</span>
+      <span slot="value">{round(ticket * profit_margin * 0.01)} €</span>
     </Card>
 
     <Card>
@@ -83,27 +83,47 @@
     <Card>
       <span slot="title">Valor Real de Cliente</span>
       <span slot="subtitle">Para a Empresa</span>
-      <span slot="value">{round(actual_lead_value)}</span>
+      <span slot="value">{round(actual_lead_value)} €</span>
     </Card>
 
     <Card>
       <span slot="title">Margem Líquida p/ Cliente</span>
       <span slot="subtitle">Valor Real * Margem de Lucro</span>
-      <span slot="value">{round(lead_net_margin)}</span>
+      <span slot="value">{round(lead_net_margin)} €</span>
     </Card>
 
     <Card>
       <span slot="title">Faturação Mensal</span>
       <span slot="subtitle">Para a Empresa</span>
-      <span slot="value">{round(actual_lead_value * leads)}</span>
+      <span slot="value" class="green">{round(actual_lead_value * leads)} €</span>
     </Card>
 
     <Card>
       <span slot="title">Lucro Mensal</span>
       <span slot="subtitle">Excluindo Marketing</span>
-      <span slot="value">{round(lead_net_margin * leads)}</span>
+      <span slot="value" class="green">{round(lead_net_margin * leads)} €</span>
     </Card>
   </div>
+
+  <hr />
+
+  <Card>
+    <span slot="title">Valor a cobrar</span>
+    <span slot="subtitle">Por cliente enviado</span>
+    <span slot="value"
+      >{round(lead_net_margin * 0.25)} - {round(lead_net_margin * 0.4)} €</span
+    >
+  </Card>
+
+  <Card>
+    <span slot="title">Valor a cobrar</span>
+    <span slot="subtitle">Total Mensal</span>
+    <span slot="value"
+      >{round(lead_net_margin * leads * 0.25)} - {round(
+        lead_net_margin * leads * 0.4
+      )} €</span
+    >
+  </Card>
 </main>
 
 <style>
@@ -112,6 +132,10 @@
     grid-template-columns: 1fr;
     gap: 1rem;
     margin-top: 2.4rem;
+  }
+
+  .green {
+    color: rgb(15, 170, 15);
   }
 
   @media (min-width: 580px) {
