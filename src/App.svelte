@@ -95,7 +95,9 @@
     <Card>
       <span slot="title">Faturação Mensal</span>
       <span slot="subtitle">Para a Empresa</span>
-      <span slot="value" class="green">{round(actual_lead_value * leads)} €</span>
+      <span slot="value" class="green"
+        >{round(actual_lead_value * leads)} €</span
+      >
     </Card>
 
     <Card>
@@ -105,25 +107,25 @@
     </Card>
   </div>
 
-  <hr />
+  <div class="footer">
+    <Card>
+      <span slot="title">Valor a cobrar</span>
+      <span slot="subtitle">Por cliente enviado</span>
+      <span slot="value"
+        >{round(lead_net_margin * 0.35)} - {round(lead_net_margin * 0.4)} €</span
+      >
+    </Card>
 
-  <Card>
-    <span slot="title">Valor a cobrar</span>
-    <span slot="subtitle">Por cliente enviado</span>
-    <span slot="value"
-      >{round(lead_net_margin * 0.25)} - {round(lead_net_margin * 0.4)} €</span
-    >
-  </Card>
-
-  <Card>
-    <span slot="title">Valor a cobrar</span>
-    <span slot="subtitle">Total Mensal</span>
-    <span slot="value"
-      >{round(lead_net_margin * leads * 0.25)} - {round(
-        lead_net_margin * leads * 0.4
-      )} €</span
-    >
-  </Card>
+    <Card>
+      <span slot="title">Valor a cobrar</span>
+      <span slot="subtitle">Total Mensal</span>
+      <span slot="value"
+        >{round(lead_net_margin * leads * 0.35)} - {round(
+          lead_net_margin * leads * 0.4
+        )}€</span
+      >
+    </Card>
+  </div>
 </main>
 
 <style>
@@ -136,6 +138,13 @@
 
   .green {
     color: rgb(15, 170, 15);
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3.2rem;
   }
 
   @media (min-width: 580px) {
